@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAcademiaProfessor.Models
 {
+    public enum Situacao { Livre, Ocupado, Reservado, Manutencao, Outras }
+
     [Table("Professores")]
     public class Professor
     {
@@ -28,9 +30,9 @@ namespace WebAcademiaProfessor.Models
         [StringLength(10)]
         public string sexo { get; set; }
 
-        [StringLength(25)]
-        [Display(Name = "Endereço")]
-        public string endereco { get; set; }
+        [Required(ErrorMessage = "Campo situação é obrigatório.")]
+        [Display(Name = "Situação")]
+        public Situacao situacao { get; set; }
 
         [StringLength(15)]
         [Required(ErrorMessage = "Campo Telefone é obrigatório...")]

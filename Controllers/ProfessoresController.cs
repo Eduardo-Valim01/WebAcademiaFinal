@@ -46,6 +46,16 @@ namespace WebAcademiaFinal.Controllers
         // GET: Professores/Create
         public IActionResult Create()
         {
+            //produzi a informação que eu quero no caso a situação
+            var status = Enum.GetValues(typeof(Situacao))
+                .Cast<Situacao>()
+                .Select(e => new SelectListItem
+                {
+                    Value = e.ToString(),
+                    Text = e.ToString()
+                });
+            ViewBag.status = status;
+
             return View();
         }
 
