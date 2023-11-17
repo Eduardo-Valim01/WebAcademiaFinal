@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAcademiaFinal.Models.Treino>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nometreino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricaotreino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dificuldade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nometreino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaotreino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dificuldade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
