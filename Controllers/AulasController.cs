@@ -41,15 +41,15 @@ namespace WebAcademiaFinal.Controllers
             {
                 return NotFound();
             }
-
+           
             return View(aula);
         }
 
         // GET: Aulas/Create
         public IActionResult Create()
         {
-            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "cidade");
-            ViewData["professorID"] = new SelectList(_context.Professores, "id", "especializacao");
+            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "nome");
+            ViewData["professorID"] = new SelectList(_context.Professores, "id", "nome");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace WebAcademiaFinal.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "cidade", aula.alunoID);
-            ViewData["professorID"] = new SelectList(_context.Professores, "id", "especializacao", aula.professorID);
+            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "nome", aula.alunoID);
+            ViewData["professorID"] = new SelectList(_context.Professores, "id", "nome", aula.professorID);
             return View(aula);
         }
 
@@ -84,8 +84,8 @@ namespace WebAcademiaFinal.Controllers
             {
                 return NotFound();
             }
-            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "cidade", aula.alunoID);
-            ViewData["professorID"] = new SelectList(_context.Professores, "id", "especializacao", aula.professorID);
+            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "nome", aula.alunoID);
+            ViewData["professorID"] = new SelectList(_context.Professores, "id", "nome", aula.professorID);
             return View(aula);
         }
 
@@ -121,8 +121,8 @@ namespace WebAcademiaFinal.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "cidade", aula.alunoID);
-            ViewData["professorID"] = new SelectList(_context.Professores, "id", "especializacao", aula.professorID);
+            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "nome", aula.alunoID);
+            ViewData["professorID"] = new SelectList(_context.Professores, "id", "nome", aula.professorID);
             return View(aula);
         }
 
@@ -142,7 +142,8 @@ namespace WebAcademiaFinal.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["alunoID"] = new SelectList(_context.Alunos, "id", "nome", aula.alunoID);
+            ViewData["professorID"] = new SelectList(_context.Professores, "id", "nome", aula.professorID);
             return View(aula);
         }
 
