@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAcademiaProfessor.Models
 {
+    
     public enum Situacao { Livre, Ocupado, Reservado, Manutencao, Outras }
-
+    
     [Table("Professores")]
     public class Professor
     {

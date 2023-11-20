@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using WebAcademiaProfessor.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAcademiaFinal.Models
 {
+    
     public class Aula
     {
 

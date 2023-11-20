@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using WebAcademiaFinal.Models;
 
 namespace WebAcademiaFinal.Controllers
 {
+    [Authorize]
     public class TreinosController : Controller
     {
         private readonly Contexto _context;
@@ -45,6 +47,16 @@ namespace WebAcademiaFinal.Controllers
         // GET: Treinos/Create
         public IActionResult Create()
         {
+            //produzi a informação que eu quero no caso a situação
+            var status = Enum.GetValues(typeof(Dificuldade))
+                .Cast<Dificuldade>()
+                .Select(e => new SelectListItem
+                {
+                    Value = e.ToString(),
+                    Text = e.ToString()
+                });
+            ViewBag.status = status;
+
             return View();
         }
 

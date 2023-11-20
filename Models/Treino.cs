@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAcademiaFinal.Models
 {
+    public enum Dificuldade { Facil, Normal, Dificil }
+
     [Table("Treinos")]
     public class Treino
     {
@@ -26,9 +28,8 @@ namespace WebAcademiaFinal.Models
         public int duracao { get; set; }
 
         [Required(ErrorMessage = "Campo Dificuldade é obrigatório...")]
-        [StringLength(15)]
-        [Display(Name = "Dificuldade do Treino")]
-        public string dificuldade { get; set; }
+        [Display(Name = "Dificuldade")]
+        public Dificuldade dificuldade { get; set; }
 
 
     }
